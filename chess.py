@@ -1,47 +1,25 @@
 def getChessSquareColor(x, y):
     x += 1
     y += 1 
-    for i in range(9):
-        numberY = i
-        for j in range(9):
-            numberX = j + 1
-            sum = numberX + numberY
-            color = ''
-            if sum % 2 == 0:
-                color= 'white'
-            else:
-                color = 'black'
-            if x == numberX and y == numberY: 
-                return color
+    sum = x + y
+    color = 'white' if sum % 2 == 0 else 'black'
+    return color
 
+def getValidInput(prompt):
+    while True: 
+        value = input(prompt)
+        if value.isdigit():
+            value = int(value)
+            if 0 <= value <= 7:
+                return value
+        print('Please select a digit between 0 and 7.')
 
 def main():
-    while True: 
-        x = input("Value of X: ")
-        if x.isdigit():
-            x= int(x)
-            if 0 <= x <= 7:
-                break
-            else: 
-                print('Please select a digit between 0 and 7.')
-        else: 
-            print('Please select a digit between 0 and 7.')
-    
-    while True: 
-        y = input("Value of Y: ")
-        if y.isdigit():
-            y= int(y)
-            if 0 <= y <= 7:
-                break
-            else: 
-                print('Please select a digit between 0 and 7.')
-        else: 
-            print('Please select a digit between 0 and 7.')
+    x = getValidInput("Value of X: ")
+    y = getValidInput("Value of Y: ")
 
-    print (f"The color for the Square at X: {x}, and Y: {y} is: {getChessSquareColor(x, y).capitalize()}")
-
+    color = getChessSquareColor(x, y)
+    print(f"The color for the Square at X: {x}, and Y: {y} is: {color.capitalize()}")
 
 if __name__ == "__main__":
     main()
-
-    

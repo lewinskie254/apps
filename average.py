@@ -15,7 +15,7 @@ def ranged(*a):
 
 def median(*a):
     a = list(a)
-
+ 
     while True: 
         sorted = False 
         for i in range(len(a)-1):

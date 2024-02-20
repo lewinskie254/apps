@@ -18,14 +18,20 @@ def changeAmount(amount):
 
     d = rem_c // nickel
     rem_d = rem_c % nickel 
+    balance = ""
 
-    balance = {
-        "Dollar": dollar, 
-        "Quarters": b, 
-        "Dimes": c, 
-        "Nickels": d, 
-        "Pennies": rem_d
-    }
+    if dollar:
+        balance += f"Dollars: {dollar}, " 
+    if b:
+        balance += f"Quarters: {b}, "
+    if c: 
+        balance += f"Dimes: {c}, "
+    if d: 
+        balance += f"Nickels: {d}, " 
+    if rem_d:
+        balance += f"Pennies: {rem_d}."
+
+    
 
     return balance 
 
@@ -38,7 +44,7 @@ def main():
             break
         except ValueError:
             print("Amount has to be a number.")
-    print(str(changeAmount(amount)))
+    print(changeAmount(amount))
 
 
 if __name__ == "__main__":
